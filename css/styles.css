@@ -502,25 +502,30 @@ address {
   opacity: 0;
   pointer-events: none;
 }
+.backdrop.is-hidden .modal {
+  transform: scale(1.5);
+}
+
 .modal {
   position: absolute;
   min-width: 528px;
   min-height: 581px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: scale(1) translate(-50%, -50%);
   background-color: #ffffff;
-  padding: 8px;
-  display: flex;
-  justify-content: flex-end;
+  transition: scale var(--accent-transition);
 }
 
 .close-modal {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 30px;
   height: 30px;
-  padding: 6px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
@@ -605,7 +610,6 @@ address {
 }
 
 .worklist-item:hover .worklist-overlay {
-  /* transform: translateY(0); */
   animation: animateTransform var(--accent-transition) forwards;
 }
 
