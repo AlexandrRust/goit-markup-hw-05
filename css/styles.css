@@ -169,7 +169,6 @@ body {
 
 .hero {
   background: #2f303a;
-  max-width: 1600px;
   background-image: linear-gradient(
       rgba(47, 48, 58, 0.4),
       rgba(47, 48, 58, 0.4)
@@ -503,7 +502,7 @@ address {
   pointer-events: none;
 }
 .backdrop.is-hidden .modal {
-  transform: scale(1.5);
+  transform: scale(1.5) perspective(50px) translate(-50%);
 }
 
 .modal {
@@ -512,9 +511,9 @@ address {
   min-height: 581px;
   top: 50%;
   left: 50%;
-  transform: scale(1) translate(-50%, -50%);
+  transform: scale(1) perspective(50px) translate(-50%, -50%);
   background-color: #ffffff;
-  transition: scale var(--accent-transition);
+  transition: transform var(--accent-transition);
 }
 
 .close-modal {
@@ -607,19 +606,12 @@ address {
   top: 0;
   left: 0;
   transform: translateY(101%);
+  transition: transform var(--accent-transition);
 }
 
 .worklist-item:hover .worklist-overlay {
-  animation: animateTransform var(--accent-transition) forwards;
-}
-
-@keyframes animateTransform {
-  0% {
-    transform: translateY(101%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  transform: translateX(0);
+  transition: transform var(--accent-transition);
 }
 
 .worklist-overlay-text {
